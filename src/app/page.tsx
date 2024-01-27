@@ -6,7 +6,8 @@ export default function WsPage() {
   const ws = useMemo(() => {
     if (typeof window === "undefined") return null;
     return new WebSocket(
-      `${window?.location.origin.replace(/^http/, "ws")}/api/ws`
+      `${window?.location.origin.replace(/^http/, "ws")}/api/ws`,
+      "echo-protocol"
     );
   }, []);
   return (
